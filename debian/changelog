@@ -1,0 +1,5 @@
+wb-knxd-config (1.0.0) stable; urgency=medium
+
+  * KNXD Configurator for Wiren Board
+
+ -- Yan Yanin <ianin@wirenboard.ru>  Wed, 06 May 2020 16:33:17 +0300

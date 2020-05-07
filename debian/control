@@ -1,0 +1,12 @@
+Source: wb-knxd-config
+Maintainer: --
+Section: misc
+Priority: optional
+Standards-Version: 1.0.0
+Build-Depends: debhelper (>= 9), pkg-config
+
+Package: wb-knxd-config
+Architecture: armel armhf
+Depends: ${misc:Depends}, knxd
+Breaks: 
+Description: KNXD Configurator for Wiren Board

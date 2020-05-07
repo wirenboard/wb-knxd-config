@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "purge" ] ; then
+	rm -f /etc/wb-knxd-config.conf
+	rm -f /etc/systemd/system/wb-knxd-config.service
+	rm -f -R /usr/lib/wb-knxd-config
+	rm -f /usr/share/wb-mqtt-confed/schemas/wb-knxd-config.schema.json
+fi
+
+#DEBHELPER#
+
+exit 0

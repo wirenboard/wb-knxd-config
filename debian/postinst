@@ -1,0 +1,3 @@
+#!/bin/sh
+systemctl enable wb-knxd-config.service
+/usr/lib/wb-knxd-config/knxd-patch.sh

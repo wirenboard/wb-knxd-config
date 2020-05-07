@@ -1,0 +1,10 @@
+[Unit]
+Description=KNXD Configurator for Wiren Board
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/wb-knxd-config/wb-knxd-config.sh
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
