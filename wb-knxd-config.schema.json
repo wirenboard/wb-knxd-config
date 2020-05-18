@@ -25,10 +25,10 @@
                 "Layer2":{
                     "propertyOrder":1,
                     "title":"Driver (-b, --layer2)",
-                    "description":"Driver : device path (default ncn5120:/dev/ttyMOD1)",
+                    "description":"Driver : device path (default ncn5120:/dev/ttyKNX)",
                     "type":"string",
                     "minLength": 1,
-                    "default":"ncn5120:/dev/ttyMOD1"
+                    "default":"ncn5120:/dev/ttyKNX"
                 },
                 "OtherOptions":{
                     "propertyOrder":2,
