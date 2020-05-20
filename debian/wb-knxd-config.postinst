@@ -1,4 +1,3 @@
 #!/bin/sh
-systemctl enable wb-knxd-config.service
 addgroup knxd dialout
 service wb-knxd-config start
