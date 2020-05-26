@@ -1,3 +1,2 @@
 #!/bin/sh
 addgroup knxd dialout
-service wb-knxd-config start
