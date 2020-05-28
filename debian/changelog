@@ -1,3 +1,11 @@
+wb-knxd-config (1.0.1) stable; urgency=medium
+
+  * Fixed schema
+
+  * Defaults changed
+
+ -- Yan Yanin <ianin@wirenboard.ru>  Mon, 18 May 2020 11:41:24 +0300
+
 wb-knxd-config (1.0.0) stable; urgency=medium
 
   * KNXD Configurator for Wiren Board

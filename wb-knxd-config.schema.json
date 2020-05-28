@@ -12,33 +12,35 @@
         "disable_properties":true
     },
     "properties":{
-        "global":{
+        "Interface":{
             "type":"object",
-            "title":"Global section",
+            "title":"Interface sections",
             "propertyOrder":1,
             "options":{
                 "collapsed":false,
-                "disable_collapse":false,
-                "disable_properties":false
+                "disable_collapse":true,
+                "disable_properties":true
             },
             "properties":{
-                "f":{
+                "Layer2":{
                     "propertyOrder":1,
-                    "title":"Error Level (-f)",
-                    "description":"set error level (default 3: warnings)",
+                    "title":"Driver (-b, --layer2)",
+                    "description":"Driver : device path (default ncn5120:/dev/ttyKNX)",
                     "type":"string",
-                    "default":"3"
+                    "minLength": 1,
+                    "default":"ncn5120:/dev/ttyKNX"
                 },
-                "t":{
+                "OtherOptions":{
                     "propertyOrder":2,
-                    "title":"Trace mask (-t)",
-                    "description":"set trace flags (bitmask) ",
+                    "title":"Other Options",
+                    "description":"Enter your custom options here (or leave empty) - it will be inserted at the end of the config.",
                     "type":"string",
-                    "default":"1023"
-                }
+                    "default":""
+                },
             }
         },
-        "address":{
+        
+        "Address":{
             "type":"object",
             "title":"Address section",
             "propertyOrder":2,
@@ -48,25 +50,29 @@
                 "disable_properties":true
             },
             "properties":{
-                "e":{
+                "EibAddr":{
                     "propertyOrder":1,
-                    "title":"EIB address (-e)",
+                    "title":"EIB address (-e, --eibaddr)",
                     "description":"Set our EIB address to EIBADDR (default 0.0.1)",
                     "type":"string",
+                    "pattern": "^([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})$",
+                    "minLength": 1,
                     "default":"0.0.1"
                 },
-                "E":{
+                "ClientAddrs":{
                     "propertyOrder":2,
-                    "title":"Client-addrs (-E)",
+                    "title":"Client-addrs (-E, --client-addrs)",
                     "description":"Assign addresses ADDRSTART through ADDRSTART+n to clients (default 0.0.2:50)",
                     "type":"string",
+                    "pattern": "^([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}):([0-9]{1,6})$",
+                    "minLength": 1,
                     "default":"0.0.2:50"
                 }
             }
         },
-        "cache":{
+        "MulticastServer":{
             "type":"object",
-            "title":"Cache section",
+            "title":"Multicast server section",
             "propertyOrder":3,
             "options":{
                 "collapsed":false,
@@ -74,93 +80,89 @@
                 "disable_properties":true
             },
             "properties":{
-                "c":{
+                "Forced":{
                     "propertyOrder":1,
                     "type":"boolean",
-                    "title":"GroupCache (-c)",
-                    "description":"Enable caching of group communication network state",
-                    "default":true,
-                    "_format":"checkbox"
-                }
-            }
-        },
-        "multicastServer":{
-            "type":"object",
-            "title":"Multicast server section",
-            "propertyOrder":4,
-            "options":{
-                "collapsed":false,
-                "disable_collapse":true,
-                "disable_properties":true
-            },
-            "properties":{
-                "D":{
-                    "propertyOrder":1,
-                    "type":"boolean",
-                    "title":"Discovery (-D)",
-                    "description":"Enable the EIBnet/IP server to answer discovery and description requests (SEARCH, DESCRIPTION)",
-                    "default":true,
-                    "_format":"checkbox"
-                },
-                "T":{
-                    "propertyOrder":2,
-                    "type":"boolean",
-                    "title":"Tunnelling (-T)",
-                    "description":"Enable EIBnet/IP Tunneling in the EIBnet/IP server",
-                    "default":true,
-                    "_format":"checkbox"
-                },
-                "R":{
-                    "propertyOrder":3,
-                    "type":"boolean",
-                    "title":"Routing (-R)",
-                    "description":"Enable EIBnet/IP Routing in the EIBnet/IP server",
-                    "default":true,
-                    "_format":"checkbox"
-                },
-                "n":{
-                    "propertyOrder":4,
-                    "type":"boolean",
-                    "title":"Name (-n)",
-                    "description":"custom name of the EIBnet/IP server ",
-                    "default":true,
-                    "_format":"checkbox"
-                },
-                "S":{
-                    "propertyOrder":5,
-                    "type":"boolean",
-                    "title":"Server (-S)",
-                    "description":"Starts an EIBnet/IP multicast server",
-                    "default":true,
-                    "_format":"checkbox"
-                },
-                "name":{
-                    "propertyOrder":6,
-                    "title":"Server name",
-                    "description":"default is 'knxd'",
-                    "type":"string",
-                    "default":"knxd"
-                },
-                "Server":{
-                    "propertyOrder":7,
-                    "title":"Server address",
-                    "description":"default address:port 224.0.23.12:3671",
-                    "type":"string",
-                    "default":"224.0.23.12:3671"
-                },
-                "forced":{
-                    "propertyOrder":8,
-                    "type":"boolean",
-                    "title":"allow-forced-broadcast",
+                    "title":"Allow forced broadcast",
                     "description":"Treat routing counter 7 as per KNX spec (dangerous)",
                     "default":false,
                     "_format":"checkbox"
                 },
+                "Discovery":{
+                    "propertyOrder":2,
+                    "type":"boolean",
+                    "title":"Discovery (-D, --Discovery)",
+                    "description":"Enable the EIBnet/IP server to answer discovery and description requests (SEARCH, DESCRIPTION)",
+                    "default":true,
+                    "_format":"checkbox"
+                },
+                "Tunnelling":{
+                    "propertyOrder":3,
+                    "type":"boolean",
+                    "title":"Tunnelling (-T, --Tunnelling)",
+                    "description":"Enable EIBnet/IP Tunneling in the EIBnet/IP server",
+                    "default":true,
+                    "_format":"checkbox"
+                },
+                "Routing":{
+                    "propertyOrder":4,
+                    "type":"boolean",
+                    "title":"Routing (-R, --Routing)",
+                    "description":"Enable EIBnet/IP Routing in the EIBnet/IP server",
+                    "default":true,
+                    "_format":"checkbox"
+                },
+                "Server":{
+                    "propertyOrder":5,
+                    "type":"boolean",
+                    "title":"Server (-S, --Server)",
+                    "description":"Starts an EIBnet/IP multicast server",
+                    "default":true,
+                    "_format":"checkbox"
+                },
+                "Name":{
+                    "propertyOrder":6,
+                    "title":"Custom name of the server",
+                    "description":"Default is knxd.",
+                    "type":"string",
+                    "default":"knxd"
+                },
+                "Address":{
+                    "propertyOrder":7,
+                    "title":"Server address",
+                    "description":"Default 224.0.23.12:3671",
+                    "type":"string",
+                    "pattern": "^([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}):([0-9]{1,6})$",
+                    "minLength": 1,
+                    "default":"224.0.23.12:3671"
+                }, 
             }
         },
-        "localListener":{
+        "Cache":{
             "type":"object",
-            "title":"Local listener section",
+            "title":"Cache section",
+            "description":"Group cache options.",
+            "propertyOrder":4,
+            "options":{
+                "collapsed":false,
+                "disable_collapse":false,
+                "disable_properties":false
+            },
+            "properties":{
+                "GroupCache":{
+                    "propertyOrder":1,
+                    "type":"boolean",
+                    "title":"GroupCache (-c, --GroupCache)",
+                    "description":"Enable caching of group communication network state",
+                    "default":false,
+                    "_format":"checkbox"
+                }
+            }
+        },
+        "Global":{
+            "type":"object",
+            "title":"Global section",
+            "description":"Debug options.",
             "propertyOrder":5,
             "options":{
                 "collapsed":false,
@@ -168,40 +170,68 @@
                 "disable_properties":false
             },
             "properties":{
-                "i":{
+                "Error":{
                     "propertyOrder":1,
-                    "title":"Listen: tcp port (-i)",
-                    "description":"listen at TCP port PORT (default 6720)",
-                    "type":"string",
-                    "default":"6720"
+                    "title":"Error Level (-f, --error)",
+                    "description":"Set error level (default 3: warnings)",
+                    "oneOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^(0x[A-Fa-f\\d]+|\\d+|(0x[A-Fa-f\\d]+|\\d+):(0x[A-Fa-f\\d]+|\\d+))$"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                    ],
+                    "minLength": 1,
+                    "default":"3"
                 },
-                "u":{
+                "Trace":{
                     "propertyOrder":2,
-                    "title":"Listen: local file (-u)",
-                    "description":"listen at Unix domain socket FILE (default /var/run/knx)",
-                    "type":"string",
-                    "default":"/var/run/knx"
+                    "title":"Trace mask (-t, --trace)",
+                    "description":"Set trace flags (bitmask) ",
+                    "oneOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^(0x[A-Fa-f\\d]+|\\d+|(0x[A-Fa-f\\d]+|\\d+):(0x[A-Fa-f\\d]+|\\d+))$"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                    ],
+                    "minLength": 1,
+                    "default":"1023"
                 }
             }
         },
-        "interface":{
+        "LocalListener":{
             "type":"object",
-            "title":"Interface sections",
+            "title":"Local listener section",
+            "description":"DO NOT use this options here. Systemd already does that on behalf of knxd, via 'knx.socket'.",
             "propertyOrder":6,
             "options":{
                 "collapsed":false,
-                "disable_collapse":true,
-                "disable_properties":true
+                "disable_collapse":false,
+                "disable_properties":false
             },
             "properties":{
-                "b":{
+                "ListenTcp":{
                     "propertyOrder":1,
-                    "title":"Driver (-b)",
-                    "description":"Driver : device path (default ncn5120:/dev/ttyMOD1)",
+                    "title":"Listen: tcp port (-i, --listen-tcp)",
+                    "description":"Listen at TCP port PORT (default 6720)",
                     "type":"string",
-                    "default":"ncn5120:/dev/ttyMOD1"
+                    "minLength": 1,
+                    "default":"6720"
+                },
+                "ListenLocal":{
+                    "propertyOrder":2,
+                    "title":"Listen: local file (-u, --listen-local)",
+                    "description":"Listen at Unix domain socket FILE (default /var/run/knx)",
+                    "type":"string",
+                    "minLength": 1,
+                    "default":"/var/run/knx"
                 }
             }
-        }
+        }  
     }
 }
