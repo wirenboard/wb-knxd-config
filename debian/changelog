@@ -1,3 +1,9 @@
+wb-knxd-config (1.0.2) stable; urgency=medium
+
+  * KNXD schema title translation to Russian
+
+ -- Dmitry Vorobjev <d.vorobjev@wirenboard.ru>  Tue, 02 Nov 2021 14:33:04 +0300
+
 wb-knxd-config (1.0.1) stable; urgency=medium
 
   * Fixed schema
