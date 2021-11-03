@@ -1,12 +1,14 @@
 Source: wb-knxd-config
-Maintainer: --
+Maintainer: Nikita Maslov <nikita.maslov@wirenboard.ru>
 Section: misc
 Priority: optional
 Standards-Version: 1.0.0
 Build-Depends: debhelper (>= 9), pkg-config
+Homepage: https://github.com/wirenboard/wb-knxd-config/
 
 Package: wb-knxd-config
-Architecture: armel armhf
-Depends: ${misc:Depends}, knxd
-Breaks: 
-Description: KNXD Configurator for Wiren Board
+Architecture: all
+Depends: ${misc:Depends}, knxd, wb-mqtt-confed
+Description: knxd configurator for Wiren Board
+ This package contains JSON schema for Wiren Board configuration editor
+ which allows user to edit knxd config from Wiren Board web interface.
