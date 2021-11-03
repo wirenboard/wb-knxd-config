@@ -1,3 +1,9 @@
+wb-knxd-config (1.0.3) stable; urgency=medium
+
+  * fix lintian errors
+
+ -- Nikita Maslov <nikita.maslov@wirenboard.ru>  Wed, 03 Nov 2021 14:34:52 +0300
+
 wb-knxd-config (1.0.2) stable; urgency=medium
 
   * KNXD schema title translation to Russian
