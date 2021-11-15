@@ -280,7 +280,7 @@
             "Listen: tcp port (-i, --listen-tcp)": "Источник прослушивания: TCP порт (-i, --listen-tcp)",
             "Listen at TCP port PORT (default 6720)": "Прослушивать TCP-порт с заданным номером (по умолчанию 6720)",
             "Listen: local file (-u, --listen-local)": "Источник прослушивания: локальный файл (-u, --listen-local)",
-            "Listen at Unix domain socket FILE (default /var/run/knx)": "Прослушивать локальный Unix-сокет файл (default /var/run/knx)"
+            "Listen at Unix domain socket FILE (default /var/run/knx)": "Прослушивать локальный Unix-сокет файл (по умолчанию /var/run/knx)"
         }
     }
 }
