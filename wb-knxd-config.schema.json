@@ -190,7 +190,7 @@
                 "Trace": {
                     "propertyOrder": 2,
                     "title": "Trace mask (-t, --trace)",
-                    "description": "Set trace flags (bitmask) ",
+                    "description": "Set trace flags (bitmask)",
                     "oneOf": [
                         {
                             "type": "string",
@@ -239,7 +239,48 @@
     "translations": {
         "ru": {
             "KNXD Configuration": "Маршрутизатор данных KNX",
-            "KNX network data router configuration": "Конфигурация маршрутизатора данных сети KNX"
+            "KNX network data router configuration": "Конфигурация маршрутизатора данных сети KNX",
+            "Interface sections": "Интерфейсы",
+            "Driver (-b, --layer2)": "Драйвер (-b, --layer2)",
+            "Driver : device path (default ncn5120:/dev/ttyKNX)": "Задается в формате драйвер:путь_к_устройству (по умолчанию ncn5120:/dev/ttyKNX)",
+            "Other Options": "Параметры",
+            "Enter your custom options here (or leave empty) - it will be inserted at the end of the config.": "Секция дополнительных параметров (оставьте поле пустым, если дополнительные параметры не требуются). Указанные параметры будут добавлены в конце конфигурационного файла",
+            "Address section": "Адреса",
+            "EIB address (-e, --eibaddr)": "EIB-адрес (-e, --eibaddr)",
+            "Set our EIB address to EIBADDR (default 0.0.1)": "Физический KNX-адрес маршрутизатора knxd (по умолчанию 0.0.1)",
+            "Client-addrs (-E, --client-addrs)": "Адреса клиентов (-E, --client-addrs)",
+            "Assign addresses ADDRSTART through ADDRSTART+n to clients (default 0.0.2:50)": "Задаются в формате ADDRSTART:n. Параметр указывает knxd выдавать KNX-адреса узлам из IP-сети в диапазоне ADDRSTART..ADDRSTART+n (по умолчанию 0.0.2:50)",
+            "Multicast server section": "Сервер групповых сообщений",
+            "Allow forced broadcast": "Разрешить принудительные широковещательные сообщения",
+            "Treat routing counter 7 as per KNX spec (dangerous)": "Обрабатывать счетчик маршрутизации 7 согласно спецификации KNX (опасно)",
+            "Discovery (-D, --Discovery)": "Обнаружение (-D, --Discovery)",
+            "Enable the EIBnet/IP server to answer discovery and description requests (SEARCH, DESCRIPTION)": "Разрешить серверу EIBnet/IP отвечать на запросы обнаружения и описания сети (SEARCH, DESCRIPTION)",
+            "Tunnelling (-T, --Tunnelling)": "Туннелирование (-T, --Tunnelling)",
+            "Enable EIBnet/IP Tunneling in the EIBnet/IP server": "Включить туннелирование на сервере EIBnet/IP",
+            "Routing (-R, --Routing)": "Маршрутизация (-R, --Routing)",
+            "Enable EIBnet/IP Routing in the EIBnet/IP server": " Включить маршрутизацию на сервере EIBnet/IP",
+            "Server (-S, --Server)": "Сервер (-S, --Server)",
+            "Starts an EIBnet/IP multicast server": "Включить сервер групповых сообщений EIBnet/IP",
+            "Custom name of the server": "Пользовательское имя сервера",
+            "Default is knxd.": "По умолчанию имя сервера \"knxd\"",
+            "Server address": "Адрес сервера",
+            "Default 224.0.23.12:3671": "По умолчанию 224.0.23.12:3671",
+            "Cache section": "Кэширование",
+            "Group cache options.": "Параметры кэширования",
+            "GroupCache (-c, --GroupCache)": "Состояние групповой связи",
+            "Enable caching of group communication network state": "Включить кэширование состояния групповой связи сети",
+            "Global section": "Глобальные параметры",
+            "Debug options.": "Параметры диагностики",
+            "Error Level (-f, --error)": "Уровень диагностических сообщений (-f, --error)",
+            "Set error level (default 3: warnings)": "Определяет типы диагностических сообщений, которые будут выведены (по умолчанию 3: предупреждения)",
+            "Trace mask (-t, --trace)": "Маска трассировки (-t, --trace)",
+            "Set trace flags (bitmask)": "Задает флаги трассировки в виде битовой маски",
+            "Local listener section": "Локальное прослушивание",
+            "DO NOT use this options here. Systemd already does that on behalf of knxd, via 'knx.socket'.": "НЕ ИСПОЛЬЗУЙТЕ эти параметры здесь. Systemd уже делает это от имени knxd через \"knx.socket\"",
+            "Listen: tcp port (-i, --listen-tcp)": "Источник прослушивания: TCP порт (-i, --listen-tcp)",
+            "Listen at TCP port PORT (default 6720)": "Прослушивать TCP-порт с заданным номером (по умолчанию 6720)",
+            "Listen: local file (-u, --listen-local)": "Источник прослушивания: локальный файл (-u, --listen-local)",
+            "Listen at Unix domain socket FILE (default /var/run/knx)": "Прослушивать локальный Unix-сокет файл (default /var/run/knx)"
         }
     }
 }
