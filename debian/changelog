@@ -1,3 +1,11 @@
+wb-knxd-config (1.1.0) stable; urgency=medium
+
+  * Do not add KNX layer2 device in config if it doesn't exist
+  * Run service after wb-hwconf-manager
+  * Keep service active in order to handle upgrades properly
+
+ -- Nikita Maslov <nikita.maslov@wirenboard.ru>  Wed, 17 Nov 2021 13:46:05 +0300
+
 wb-knxd-config (1.0.3) stable; urgency=medium
 
   * fix lintian errors

@@ -1,8 +1,10 @@
 [Unit]
 Description=KNXD Configurator for Wiren Board
+After=wb-hwconf-manager.service
 
 [Service]
 Type=oneshot
+RemainAfterExit=yes
 ExecStart=/usr/lib/wb-knxd-config/wb-knxd-config.sh
 StandardOutput=journal
 
