@@ -1,6 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-addgroup knxd dialout
+addgroup knxd dialout >/dev/null
+
+# Force-restart wb-knxd-config if upgrading from old versions.
+#
+# Before 1.0.3 service did not start on installation.
+# In 1.0.3 DEBHELPER placeholder was added, but service was without 'RemainAfterExit',
+# so 'try-restart' from dh_systemd doesn't actually restart service.
+#
+# This was fixed in 1.1.0 by adding 'RemainAfterExit'.
+if [[ "$1" == "configure" ]] && dpkg --compare-versions "$2" lt "1.1.0~~"; then
+    deb-systemd-invoke restart wb-knxd-config.service >/dev/null || true
+fi
 
 #DEBHELPER#
