@@ -1,3 +1,9 @@
+wb-knxd-config (1.1.1) stable; urgency=medium
+
+  * KNXD schema translation to Russian
+
+ -- Dmitry Vorobjev <d.vorobjev@wirenboard.ru>  Mon, 15 Nov 2021 18:03:05 +0300
+
 wb-knxd-config (1.1.0) stable; urgency=medium
 
   * Do not add KNX layer2 device in config if it doesn't exist
