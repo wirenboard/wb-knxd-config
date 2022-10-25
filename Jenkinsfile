@@ -1,1 +1,1 @@
-buildDebArchAll defaultRunLintian: true
+buildDebArchAll_test defaultRunLintian: true
