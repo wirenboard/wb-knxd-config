@@ -10,7 +10,8 @@
     "options": {
         "collapsed": false,
         "disable_collapse": true,
-        "disable_properties": true
+        "disable_properties": true,
+        "disable_edit_json": true
     },
     "properties": {
         "Interface": {
@@ -20,7 +21,8 @@
             "options": {
                 "collapsed": false,
                 "disable_collapse": true,
-                "disable_properties": true
+                "disable_properties": true,
+                "disable_edit_json": true
             },
             "properties": {
                 "Layer2": {
@@ -48,7 +50,8 @@
             "options": {
                 "collapsed": false,
                 "disable_collapse": true,
-                "disable_properties": true
+                "disable_properties": true,
+                "disable_edit_json": true
             },
             "properties": {
                 "EibAddr": {
@@ -78,7 +81,8 @@
             "options": {
                 "collapsed": false,
                 "disable_collapse": true,
-                "disable_properties": true
+                "disable_properties": true,
+                "disable_edit_json": true
             },
             "properties": {
                 "Forced": {
@@ -147,7 +151,8 @@
             "options": {
                 "collapsed": false,
                 "disable_collapse": false,
-                "disable_properties": false
+                "disable_properties": false,
+                "disable_edit_json": true
             },
             "properties": {
                 "GroupCache": {
@@ -168,7 +173,8 @@
             "options": {
                 "collapsed": false,
                 "disable_collapse": false,
-                "disable_properties": false
+                "disable_properties": false,
+                "disable_edit_json": true
             },
             "properties": {
                 "Error": {
@@ -178,13 +184,19 @@
                     "oneOf": [
                         {
                             "type": "string",
-                            "pattern": "^(0x[A-Fa-f\\d]+|\\d+|(0x[A-Fa-f\\d]+|\\d+):(0x[A-Fa-f\\d]+|\\d+))$"
+                            "pattern": "^(0x[A-Fa-f\\d]+|\\d+|(0x[A-Fa-f\\d]+|\\d+):(0x[A-Fa-f\\d]+|\\d+))$",
+                            "options": {
+                                "inputAttributes": {
+                                    "placeholder": "decimal (e.g. 123) or hex (e.g. 0xAF)"
+                                },
+                                "patternmessage": "Should be decimal or hex"
+                            }
                         },
                         {
                             "type": "integer"
                         }
                     ],
-                    "minLength": 1,
+                    "format": "wb-first-oneof",
                     "default": "3"
                 },
                 "Trace": {
@@ -194,13 +206,19 @@
                     "oneOf": [
                         {
                             "type": "string",
-                            "pattern": "^(0x[A-Fa-f\\d]+|\\d+|(0x[A-Fa-f\\d]+|\\d+):(0x[A-Fa-f\\d]+|\\d+))$"
+                            "pattern": "^(0x[A-Fa-f\\d]+|\\d+|(0x[A-Fa-f\\d]+|\\d+):(0x[A-Fa-f\\d]+|\\d+))$",
+                            "options": {
+                                "inputAttributes": {
+                                    "placeholder": "decimal (e.g. 123) or hex (e.g. 0xAF)"
+                                },
+                                "patternmessage": "Should be decimal or hex"
+                            }
                         },
                         {
                             "type": "integer"
                         }
                     ],
-                    "minLength": 1,
+                    "format": "wb-first-oneof",
                     "default": "1023"
                 }
             }
@@ -208,12 +226,13 @@
         "LocalListener": {
             "type": "object",
             "title": "Local listener section",
-            "description": "DO NOT use this options here. Systemd already does that on behalf of knxd, via 'knx.socket'.",
+            "description": "DO NOT use this options here. Systemd already does that on behalf of knxd, via 'knxd.socket'.",
             "propertyOrder": 6,
             "options": {
                 "collapsed": false,
                 "disable_collapse": false,
-                "disable_properties": false
+                "disable_properties": false,
+                "disable_edit_json": true
             },
             "properties": {
                 "ListenTcp": {
@@ -280,7 +299,9 @@
             "Listen: tcp port (-i, --listen-tcp)": "Источник прослушивания: TCP порт (-i, --listen-tcp)",
             "Listen at TCP port PORT (default 6720)": "Прослушивать TCP-порт с заданным номером (по умолчанию 6720)",
             "Listen: local file (-u, --listen-local)": "Источник прослушивания: локальный файл (-u, --listen-local)",
-            "Listen at Unix domain socket FILE (default /var/run/knx)": "Прослушивать локальный Unix-сокет файл (по умолчанию /var/run/knx)"
+            "Listen at Unix domain socket FILE (default /var/run/knx)": "Прослушивать локальный Unix-сокет файл (по умолчанию /var/run/knx)",
+            "decimal (e.g. 123) or hex (e.g. 0xAF)": "десятичное (например, 123) или шестнадцатеричное (например, 0xAF)",
+            "Should be decimal or hex": "Должно быть задано десятичное или шестнадцатеричное значение"
         }
     }
 }
