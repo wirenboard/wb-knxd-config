@@ -30,8 +30,12 @@
                     "title": "Driver (-b, --layer2)",
                     "description": "Driver : device path (default ncn5120:/dev/ttyKNX)",
                     "type": "string",
+                    "pattern": "^(ft12:|ft12cemi:|ncn5120:|tpuarts:|tpuart:|ip|ipt:|iptn:|tpuarttcp:|ft12tcp:|ft12cemitcp:|ncn5120tcp:|usb|dummy)",
                     "minLength": 1,
-                    "default": "ncn5120:/dev/ttyKNX"
+                    "default": "ncn5120:/dev/ttyKNX",
+                    "options": {
+                        "patternmessage": "Unknown driver type"
+                    }
                 },
                 "OtherOptions": {
                     "propertyOrder": 2,
@@ -301,7 +305,8 @@
             "Listen: local file (-u, --listen-local)": "Источник прослушивания: локальный файл (-u, --listen-local)",
             "Listen at Unix domain socket FILE (default /var/run/knx)": "Прослушивать локальный Unix-сокет файл (по умолчанию /var/run/knx)",
             "decimal (e.g. 123) or hex (e.g. 0xAF)": "десятичное (например, 123) или шестнадцатеричное (например, 0xAF)",
-            "Should be decimal or hex": "Должно быть задано десятичное или шестнадцатеричное значение"
+            "Should be decimal or hex": "Должно быть задано десятичное или шестнадцатеричное значение",
+            "Unknown driver type": "Неизвестный тип драйвера"
         }
     }
 }
