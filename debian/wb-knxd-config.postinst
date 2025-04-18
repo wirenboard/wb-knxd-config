@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-addgroup knxd dialout >/dev/null
+usermod -a -G dialout knxd >/dev/null
 
 # Force-restart wb-knxd-config if upgrading from old versions.
 #
