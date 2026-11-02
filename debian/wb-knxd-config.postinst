@@ -14,4 +14,21 @@ if [[ "$1" == "configure" ]] && dpkg --compare-versions "$2" lt "1.1.0~~"; then
     deb-systemd-invoke restart wb-knxd-config.service >/dev/null || true
 fi
 
+# Apply the knxd.socket drop-in (knxd protocol on /var/run/knx and 127.0.0.1:6720
+# only, see /usr/lib/systemd/system/knxd.socket.d/wb-knxd-config.conf).
+# A socket unit can't change its listeners while knxd holds them, so stop
+# both, then start them again.
+if [[ "$1" == "configure" ]] && dpkg --compare-versions "$2" lt "1.2.0~~"; then
+    systemctl daemon-reload >/dev/null || :
+    if systemctl is-active --quiet knxd.socket; then
+        knxd_was_active=0
+        systemctl is-active --quiet knxd.service && knxd_was_active=1
+        deb-systemd-invoke stop knxd.service knxd.socket >/dev/null || :
+        deb-systemd-invoke start knxd.socket >/dev/null || :
+        if [[ "$knxd_was_active" == 1 ]]; then
+            deb-systemd-invoke start knxd.service >/dev/null || :
+        fi
+    fi
+fi
+
 #DEBHELPER#

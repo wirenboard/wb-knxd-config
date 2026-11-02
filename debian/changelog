@@ -1,3 +1,11 @@
+wb-knxd-config (1.2.0) stable; urgency=medium
+
+  * Listen for the knxd client protocol on /run/knx and 127.0.0.1:6720 only
+    (knxd.socket drop-in): it has no authentication and was reachable on
+    TCP port 6720 from any network
+
+ -- Nikolay Korotkiy <nikolay.korotkiy@wirenboard.com>  Mon, 02 Nov 2026 12:00:00 +0400
+
 wb-knxd-config (1.1.6) stable; urgency=medium
 
   * Fix postinst script
