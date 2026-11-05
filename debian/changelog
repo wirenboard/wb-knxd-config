@@ -1,3 +1,9 @@
+wb-knxd-config (1.1.7) stable; urgency=medium
+
+  * schema: fix translations
+
+ -- Nikolay Korotkiy <nikolay.korotkiy@wirenboard.com>  Mon, 02 Nov 2026 12:00:00 +0400
+
 wb-knxd-config (1.1.6) stable; urgency=medium
 
   * Fix postinst script
