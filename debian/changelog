@@ -1,3 +1,10 @@
+wb-knxd-config (1.1.8) stable; urgency=medium
+
+  * Don't start knxd if the serial KNX interface does not exist
+  * schema: warn that enabling multicast server is insecure
+
+ -- Nikolay Korotkiy <nikolay.korotkiy@wirenboard.com>  Mon, 09 Nov 2026 12:00:00 +0400
+
 wb-knxd-config (1.1.7) stable; urgency=medium
 
   * schema: fix translations

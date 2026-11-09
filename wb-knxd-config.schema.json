@@ -89,8 +89,16 @@
                 "disable_edit_json": true
             },
             "properties": {
-                "Forced": {
+                "Server": {
                     "propertyOrder": 1,
+                    "type": "boolean",
+                    "title": "Server (-S, --Server)",
+                    "description": "Starts an EIBnet/IP multicast server. <br><b>⚠️ Anyone who can reach the controller over the network can control KNX without a password.</b>",
+                    "default": true,
+                    "_format": "checkbox"
+                },
+                "Forced": {
+                    "propertyOrder": 2,
                     "type": "boolean",
                     "title": "Allow forced broadcast",
                     "description": "Treat routing counter 7 as per KNX spec (dangerous)",
@@ -98,7 +106,7 @@
                     "_format": "checkbox"
                 },
                 "Discovery": {
-                    "propertyOrder": 2,
+                    "propertyOrder": 3,
                     "type": "boolean",
                     "title": "Discovery (-D, --Discovery)",
                     "description": "Enable the EIBnet/IP server to answer discovery and description requests (SEARCH, DESCRIPTION)",
@@ -106,7 +114,7 @@
                     "_format": "checkbox"
                 },
                 "Tunnelling": {
-                    "propertyOrder": 3,
+                    "propertyOrder": 4,
                     "type": "boolean",
                     "title": "Tunnelling (-T, --Tunnelling)",
                     "description": "Enable EIBnet/IP Tunneling in the EIBnet/IP server",
@@ -114,18 +122,10 @@
                     "_format": "checkbox"
                 },
                 "Routing": {
-                    "propertyOrder": 4,
+                    "propertyOrder": 5,
                     "type": "boolean",
                     "title": "Routing (-R, --Routing)",
                     "description": "Enable EIBnet/IP Routing in the EIBnet/IP server",
-                    "default": true,
-                    "_format": "checkbox"
-                },
-                "Server": {
-                    "propertyOrder": 5,
-                    "type": "boolean",
-                    "title": "Server (-S, --Server)",
-                    "description": "Starts an EIBnet/IP multicast server",
                     "default": true,
                     "_format": "checkbox"
                 },
@@ -283,7 +283,7 @@
             "Routing (-R, --Routing)": "Маршрутизация (-R, --Routing)",
             "Enable EIBnet/IP Routing in the EIBnet/IP server": "Включить маршрутизацию на сервере EIBnet/IP",
             "Server (-S, --Server)": "Сервер (-S, --Server)",
-            "Starts an EIBnet/IP multicast server": "Включить сервер групповых сообщений EIBnet/IP",
+            "Starts an EIBnet/IP multicast server. <br><b>⚠️ Anyone who can reach the controller over the network can control KNX without a password.</b>": "Включить сервер групповых сообщений EIBnet/IP. <br><b>⚠️ Любой, у кого есть доступ к контроллеру по сети, сможет управлять KNX без пароля.</b>",
             "Custom name of the server": "Пользовательское имя сервера",
             "Default is knxd.": "По умолчанию имя сервера \"knxd\"",
             "Server address": "Адрес сервера",
