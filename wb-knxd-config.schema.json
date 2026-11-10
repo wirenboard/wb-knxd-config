@@ -28,7 +28,7 @@
                 "Layer2": {
                     "propertyOrder": 1,
                     "title": "Driver (-b, --layer2)",
-                    "description": "Driver : device path (default ncn5120:/dev/ttyKNX)",
+                    "description": "layer2_description",
                     "type": "string",
                     "pattern": "^(ft12:|ft12cemi:|ncn5120:|tpuarts:|tpuart:|ip|ipt:|iptn:|tpuarttcp:|ft12tcp:|ft12cemitcp:|ncn5120tcp:|usb|dummy)",
                     "minLength": 1,
@@ -40,7 +40,7 @@
                 "OtherOptions": {
                     "propertyOrder": 2,
                     "title": "Other Options",
-                    "description": "Enter your custom options here (or leave empty) - it will be inserted at the end of the config.",
+                    "description": "other_options_description",
                     "type": "string",
                     "default": ""
                 }
@@ -61,7 +61,7 @@
                 "EibAddr": {
                     "propertyOrder": 1,
                     "title": "EIB address (-e, --eibaddr)",
-                    "description": "Set our EIB address to EIBADDR (default 0.0.1)",
+                    "description": "eib_addr_description",
                     "type": "string",
                     "pattern": "^([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})$",
                     "minLength": 1,
@@ -70,7 +70,7 @@
                 "ClientAddrs": {
                     "propertyOrder": 2,
                     "title": "Client-addrs (-E, --client-addrs)",
-                    "description": "Assign addresses ADDRSTART through ADDRSTART+n to clients (default 0.0.2:50)",
+                    "description": "client_addrs_description",
                     "type": "string",
                     "pattern": "^([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}):([0-9]{1,6})$",
                     "minLength": 1,
@@ -89,50 +89,50 @@
                 "disable_edit_json": true
             },
             "properties": {
-                "Forced": {
+                "Server": {
                     "propertyOrder": 1,
                     "type": "boolean",
+                    "title": "Server (-S, --Server)",
+                    "description": "server_description",
+                    "default": true,
+                    "_format": "checkbox"
+                },
+                "Forced": {
+                    "propertyOrder": 2,
+                    "type": "boolean",
                     "title": "Allow forced broadcast",
-                    "description": "Treat routing counter 7 as per KNX spec (dangerous)",
+                    "description": "forced_description",
                     "default": false,
                     "_format": "checkbox"
                 },
                 "Discovery": {
-                    "propertyOrder": 2,
+                    "propertyOrder": 3,
                     "type": "boolean",
                     "title": "Discovery (-D, --Discovery)",
-                    "description": "Enable the EIBnet/IP server to answer discovery and description requests (SEARCH, DESCRIPTION)",
+                    "description": "discovery_description",
                     "default": true,
                     "_format": "checkbox"
                 },
                 "Tunnelling": {
-                    "propertyOrder": 3,
+                    "propertyOrder": 4,
                     "type": "boolean",
                     "title": "Tunnelling (-T, --Tunnelling)",
-                    "description": "Enable EIBnet/IP Tunneling in the EIBnet/IP server",
+                    "description": "tunnelling_description",
                     "default": true,
                     "_format": "checkbox"
                 },
                 "Routing": {
-                    "propertyOrder": 4,
-                    "type": "boolean",
-                    "title": "Routing (-R, --Routing)",
-                    "description": "Enable EIBnet/IP Routing in the EIBnet/IP server",
-                    "default": true,
-                    "_format": "checkbox"
-                },
-                "Server": {
                     "propertyOrder": 5,
                     "type": "boolean",
-                    "title": "Server (-S, --Server)",
-                    "description": "Starts an EIBnet/IP multicast server",
+                    "title": "Routing (-R, --Routing)",
+                    "description": "routing_description",
                     "default": true,
                     "_format": "checkbox"
                 },
                 "Name": {
                     "propertyOrder": 6,
                     "title": "Custom name of the server",
-                    "description": "Default is knxd.",
+                    "description": "Default is knxd",
                     "type": "string",
                     "default": "knxd"
                 },
@@ -230,7 +230,7 @@
         "LocalListener": {
             "type": "object",
             "title": "Local listener section",
-            "description": "DO NOT use this options here. Systemd already does that on behalf of knxd, via 'knxd.socket'.",
+            "description": "local_listener_description",
             "propertyOrder": 6,
             "options": {
                 "collapsed": false,
@@ -260,32 +260,44 @@
     },
 
     "translations": {
+        "en": {
+            "layer2_description": "Driver : device path (default ncn5120:/dev/ttyKNX)",
+            "other_options_description": "Enter your custom options here (or leave empty) - it will be inserted at the end of the config",
+            "eib_addr_description": "Set our EIB address to EIBADDR (default 0.0.1)",
+            "client_addrs_description": "Assign addresses ADDRSTART through ADDRSTART+n to clients (default 0.0.2:50)",
+            "server_description": "Starts an EIBnet/IP multicast server<br><b>⚠️ Anyone with network access to the controller can control the KNX system without any authentication</b>",
+            "forced_description": "Treat routing counter 7 as per KNX spec (dangerous)",
+            "discovery_description": "Enable the EIBnet/IP server to answer discovery and description requests (SEARCH, DESCRIPTION)",
+            "tunnelling_description": "Enable EIBnet/IP Tunneling in the EIBnet/IP server",
+            "routing_description": "Enable EIBnet/IP Routing in the EIBnet/IP server",
+            "local_listener_description": "DO NOT use this options here. Systemd already does that on behalf of knxd, via 'knxd.socket'"
+        },
         "ru": {
             "KNXD Configuration": "Маршрутизатор данных KNX",
             "KNX network data router configuration": "Конфигурация маршрутизатора данных сети KNX",
             "Interface sections": "Интерфейсы",
             "Driver (-b, --layer2)": "Драйвер (-b, --layer2)",
-            "Driver : device path (default ncn5120:/dev/ttyKNX)": "Задается в формате драйвер:путь_к_устройству (по умолчанию ncn5120:/dev/ttyKNX)",
+            "layer2_description": "Задается в формате драйвер:путь_к_устройству (по умолчанию ncn5120:/dev/ttyKNX)",
             "Other Options": "Параметры",
-            "Enter your custom options here (or leave empty) - it will be inserted at the end of the config.": "Секция дополнительных параметров (оставьте поле пустым, если дополнительные параметры не требуются). Указанные параметры будут добавлены в конце конфигурационного файла",
+            "other_options_description": "Секция дополнительных параметров (оставьте поле пустым, если дополнительные параметры не требуются). Указанные параметры будут добавлены в конце конфигурационного файла",
             "Address section": "Адреса",
             "EIB address (-e, --eibaddr)": "EIB-адрес (-e, --eibaddr)",
-            "Set our EIB address to EIBADDR (default 0.0.1)": "Физический KNX-адрес маршрутизатора knxd (по умолчанию 0.0.1)",
+            "eib_addr_description": "Физический KNX-адрес маршрутизатора knxd (по умолчанию 0.0.1)",
             "Client-addrs (-E, --client-addrs)": "Адреса клиентов (-E, --client-addrs)",
-            "Assign addresses ADDRSTART through ADDRSTART+n to clients (default 0.0.2:50)": "Задаются в формате ADDRSTART:n. Параметр указывает knxd выдавать KNX-адреса узлам из IP-сети в диапазоне ADDRSTART..ADDRSTART+n (по умолчанию 0.0.2:50)",
+            "client_addrs_description": "Задаются в формате ADDRSTART:n. Параметр указывает knxd выдавать KNX-адреса узлам из IP-сети в диапазоне ADDRSTART..ADDRSTART+n (по умолчанию 0.0.2:50)",
             "Multicast server section": "Сервер групповых сообщений",
             "Allow forced broadcast": "Разрешить принудительные широковещательные сообщения",
-            "Treat routing counter 7 as per KNX spec (dangerous)": "Обрабатывать счетчик маршрутизации 7 согласно спецификации KNX (опасно)",
+            "forced_description": "Обрабатывать счетчик маршрутизации 7 согласно спецификации KNX (опасно)",
             "Discovery (-D, --Discovery)": "Обнаружение (-D, --Discovery)",
-            "Enable the EIBnet/IP server to answer discovery and description requests (SEARCH, DESCRIPTION)": "Разрешить серверу EIBnet/IP отвечать на запросы обнаружения и описания сети (SEARCH, DESCRIPTION)",
+            "discovery_description": "Разрешить серверу EIBnet/IP отвечать на запросы обнаружения и описания сети (SEARCH, DESCRIPTION)",
             "Tunnelling (-T, --Tunnelling)": "Туннелирование (-T, --Tunnelling)",
-            "Enable EIBnet/IP Tunneling in the EIBnet/IP server": "Включить туннелирование на сервере EIBnet/IP",
+            "tunnelling_description": "Включить туннелирование на сервере EIBnet/IP",
             "Routing (-R, --Routing)": "Маршрутизация (-R, --Routing)",
-            "Enable EIBnet/IP Routing in the EIBnet/IP server": "Включить маршрутизацию на сервере EIBnet/IP",
+            "routing_description": "Включить маршрутизацию на сервере EIBnet/IP",
             "Server (-S, --Server)": "Сервер (-S, --Server)",
-            "Starts an EIBnet/IP multicast server": "Включить сервер групповых сообщений EIBnet/IP",
+            "server_description": "Включить сервер групповых сообщений EIBnet/IP<br><b>⚠️ Любой, кто имеет доступ к контроллеру по сети, может управлять системой KNX без какой-либо аутентификации</b>",
             "Custom name of the server": "Пользовательское имя сервера",
-            "Default is knxd.": "По умолчанию имя сервера \"knxd\"",
+            "Default is knxd": "По умолчанию имя сервера \"knxd\"",
             "Server address": "Адрес сервера",
             "Default 224.0.23.12:3671": "По умолчанию 224.0.23.12:3671",
             "Cache section": "Кэширование",
@@ -299,7 +311,7 @@
             "Trace mask (-t, --trace)": "Маска трассировки (-t, --trace)",
             "Set trace flags (bitmask)": "Задает флаги трассировки в виде битовой маски",
             "Local listener section": "Локальное прослушивание",
-            "DO NOT use this options here. Systemd already does that on behalf of knxd, via 'knxd.socket'.": "НЕ ИСПОЛЬЗУЙТЕ эти параметры здесь. Systemd уже делает это от имени knxd через \"knxd.socket\"",
+            "local_listener_description": "НЕ ИСПОЛЬЗУЙТЕ эти параметры здесь. Systemd уже делает это от имени knxd через \"knxd.socket\"",
             "Listen: tcp port (-i, --listen-tcp)": "Источник прослушивания: TCP порт (-i, --listen-tcp)",
             "Listen at TCP port PORT (default 6720)": "Прослушивать TCP-порт с заданным номером (по умолчанию 6720)",
             "Listen: local file (-u, --listen-local)": "Источник прослушивания: локальный файл (-u, --listen-local)",
